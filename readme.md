@@ -30,7 +30,7 @@ cd HigherOrderCBMs
 pip install -r requirements.txt
 ```
 
-Requires Python ≥ 3.9 and a CUDA-capable GPU for reasonable training times.
+Requires Python ≥ 3.12 and a CUDA-capable GPU for reasonable training times.
 
 ---
 
