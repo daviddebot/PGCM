@@ -1,0 +1,57 @@
+# Base configuration for PGCM on CLEVR-Hans3 (pre-segmented)
+dataset: "clevrhans"
+model: "PGCM"
+
+# Training Hyperparameters
+epochs: 250
+batch_size: 16
+num_workers: 0
+lr: 0.001
+warmup_epochs: 10
+fixed_lr: False
+
+# Model and Concept Embeddings
+protosize: 64
+embedding_size: 128
+nb_proto: 100
+
+# Loss Function Weights
+lam_entropy: 0.005
+lam_batch_entropy: 0.06
+decay_lam_entropy: True
+lam_reconstruction: 10.0
+lam_kl: 0.00
+lam_segmentation: 1.0
+lam_orth: 0.0
+lam_proto_emb: 0.0
+
+# Settings
+segmentation_method: "mask"
+plot_frequency: 10
+concepts_to_task: "thresholding"
+use_weights: True
+always_use_true_masks: False
+use_initial_proto_embs: False
+use_balanced_accuracy: True
+use_linear_task_predictor: False
+
+# Dataset-Specific
+clevrhans_resolution: 128  # Parametric: set to desired image resolution
+
+# Autoencoder Settings
+use_pretrained_autoencoder: False
+autoencoder_path: null
+
+# Segmenter Settings
+use_pretrained_segmenter: True
+presegmented_datasets_path: /cw/dtaijupiter/NoCsBack/dtai/david/my_clevr/CLEVR-Hans3/segmentation/presegmented_centered_padded/
+
+# Interventions / Noise
+intv_prob: 0.2
+noisy_prob: 0.0
+noisy_concept_names: []  # List of concept names to corrupt (e.g., ['color_red', 'size_large'])
+target_noisy_concept_names: []  # List of target concept names (e.g., ['color_blue', 'size_small'])
+noisy_digit: null
+noisy_target_digit: null
+noisy_part: null
+noisy_target_part: null

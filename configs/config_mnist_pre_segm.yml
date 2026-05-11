@@ -1,0 +1,52 @@
+# Base configuration for PGCM on MNIST
+dataset: "mnist"
+model: "PGCM"
+
+# Training Hyperparameters
+epochs: 100
+batch_size: 128
+num_workers: 0
+lr: 0.001
+warmup_epochs: 10
+fixed_lr: False
+
+# Model and Concept Embeddings
+protosize: 64
+embedding_size: 128
+nb_proto: null # None allows default dataset logic to decide
+
+# Loss Function Weights
+lam_entropy: 0.01
+lam_batch_entropy: 0.01
+decay_lam_entropy: True
+lam_reconstruction: 5.0
+lam_kl: 0.00
+lam_segmentation: 1.0
+lam_orth: 0.0
+lam_proto_emb: 0.0
+
+# Settings
+segmentation_method: "mask"
+plot_frequency: 10
+concepts_to_task: "thresholding"
+use_weights: True
+always_use_true_masks: False
+use_initial_proto_embs: False
+use_balanced_accuracy: True
+use_linear_task_predictor: False
+
+# Autoencoder Settings
+use_pretrained_autoencoder: False
+autoencoder_path: "/cw/dtaijupiter/NoCsBack/dtai/david/prototypes/HigherOrderCBMs/new_outputs/autoencoder_20260310_171935_mnist"
+
+# Segmenter Settings
+use_pretrained_segmenter: True
+presegmented_datasets_path: /cw/dtaijupiter/NoCsBack/dtai/david/prototypes/HigherOrderCBMs/new_outputs/segmenter_20260312_105127_mnist_segm/outputs/presegmented_datasets
+
+# Interventions / Noise
+intv_prob: 0.2
+noisy_prob: 0.2
+noisy_digit: null
+noisy_target_digit: null
+noisy_part: null
+noisy_target_part: null

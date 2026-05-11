@@ -1,0 +1,13 @@
+datasets/celeba/
+datasets/celebamask/
+tb_logs/
+__pycache__/
+data/*
+outputs/
+new_outputs/
+lightning_logs/*
+.DS_Store
+wandb/
+
+gen_imgs*
+logs_unet*

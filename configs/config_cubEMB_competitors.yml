@@ -1,0 +1,62 @@
+# Base configuration for the CUBEMB feature-only setting.
+# This path uses pretrained feature tensors, so image reconstruction and mask-based
+# losses stay disabled and the encoder/decoder pair operates in feature space.
+dataset: "cubEMB"
+model: "DNN"
+
+# Training Hyperparameters
+epochs: 1500
+batch_size: 128
+num_workers: 0
+lr: 0.001
+warmup_epochs: 10
+fixed_lr: False
+
+# Model and Concept Embeddings
+# `nb_proto` can stay null when the run logic infers the prototype count from the data.
+protosize: 64
+embedding_size: 512
+nb_proto: null
+
+# Loss Function Weights
+# Reconstruction, segmentation, and prototype-embedding regularizers are disabled in
+# this feature-only setting.
+lam_entropy: 0.01
+lam_batch_entropy: 0.01
+decay_lam_entropy: True
+lam_reconstruction: 0.0
+lam_kl: 0.00
+lam_segmentation: 0.0
+lam_orth: 0.0
+lam_proto_emb: 0.0
+
+# Settings
+# `segmentation_method` is kept for the shared config structure, but cubEMB does not
+# use image segmentation at runtime.
+segmentation_method: "mask"
+plot_frequency: 10
+concepts_to_task: "thresholding"
+use_weights: True
+always_use_true_masks: False
+use_initial_proto_embs: False
+use_balanced_accuracy: True
+use_linear_task_predictor: False
+
+# Autoencoder Settings
+use_pretrained_autoencoder: False
+autoencoder_path: null
+
+# Segmenter Settings
+use_pretrained_segmenter: False
+presegmented_datasets_path: null
+
+# CUB dataset location
+cub_dataset_root: null
+
+# Interventions / Noise
+intv_prob: 0.2
+noisy_prob: 0.0
+noisy_digit: null
+noisy_target_digit: null
+noisy_part: null
+noisy_target_part: null

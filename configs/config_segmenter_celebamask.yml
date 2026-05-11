@@ -1,0 +1,17 @@
+# Base configuration for segmenter pretraining on CelebA-Mask
+dataset: "celebamask"
+segmentation_method: "mask"
+
+# Training Hyperparameters
+epochs: 100
+batch_size: 128
+num_workers: 0
+lr: 0.001
+warmup_epochs: 10
+
+# Noise
+noisy_prob: 0.2
+noisy_digit: null
+noisy_target_digit: null
+noisy_part: null
+noisy_target_part: null
