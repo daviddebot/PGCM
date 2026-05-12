@@ -3,6 +3,8 @@
 PGCMs learn a set of prototype embeddings that are jointly decoded into concept probability vectors and visual representations.
 Each concept prediction can be traced back to a specific prototype, enabling *verifiable* concept alignment: users can inspect whether the model's learned concepts truly match the intended semantics, rather than relying solely on aggregate accuracy metrics.
 
+The paper has been accepted to **ICML 2026** and can be found [here](https://arxiv.org/abs/2604.16076).
+
 ---
 
 ## Overview
